@@ -1,18 +1,26 @@
 import { useState } from "react";
-const Input = () => {
+
+
+
+const Input = ({addItem}) => {
+  const arrList = [];
   const inputChange = (e) => {
     setInpVal((state) => e.target.value);
   };
   const [inpVal, setInpVal] = useState("");
-  const addItem = () => {
-    // const inputVal = Input.value;
+  // const addItem = () => {
+  //   arrList.push(inpVal);
+  //   setInpVal("");
+  //   // const inputVal = Input.value;
 
-    console.log(inpVal);
-  };
+  //   console.log(arrList);
+  // };
+
+
   return (
     <>
-      <input onInput={inputChange} type="text"></input>
-      <button onClick={addItem}>Dodaj!</button>
+      <input value={inpVal} onInput={inputChange} type="text"></input>
+      <button onClick={addItem(inpVal)}>Dodaj!</button>
     </>
   );
 };
